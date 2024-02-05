@@ -11,6 +11,7 @@ import moveFile from './stream/moveFile.js';
 import catFile from './stream/catFile.js';
 import renameFile from './fs/renameFile.js';
 import getArguments from './utils/getArguments.js';
+import getEOL from './os/getEOL.js';
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -62,6 +63,15 @@ rl.on('line', (input) => {
       break;
     case 'rm':
       deleteFile(args.slice(1).join(' '));
+      break;
+    case 'os':
+      switch (args[1]) {
+        case '--EOL':
+          getEOL();
+          break;
+        default:
+          printInvalidInput();
+      }
       break;
     default:
       printInvalidInput();
