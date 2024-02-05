@@ -5,6 +5,11 @@ import printOperationFailed from './printOperationFailed.js';
 import globalVars from '../globalVars/globalVars.js';
 
 export default async function changeDirectory(directory) {
+  if (!directory) {
+    console.error('Error: directory must be provided');
+    return;
+  }
+
   const newPath = path.resolve(globalVars.currentWorkingDirectory, directory);
 
   try {
