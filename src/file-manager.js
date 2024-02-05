@@ -8,6 +8,7 @@ import addFile from './fs/addFile.js';
 import deleteFile from './fs/deleteFile.js';
 import copyFile from './stream/copyFile.js';
 import moveFile from './stream/moveFile.js';
+import catFile from './stream/catFile.js';
 import getArguments from './utils/getArguments.js';
 
 const rl = readline.createInterface({
@@ -51,6 +52,9 @@ rl.on('line', (input) => {
       break;
     case 'mv':
       moveFile(args[1], args[2]);
+      break;
+    case 'cat':
+      catFile(args.slice(1).join(' '));
       break;
     case 'rm':
       deleteFile(args.slice(1).join(' '));
