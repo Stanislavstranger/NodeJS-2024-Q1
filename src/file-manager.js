@@ -6,6 +6,7 @@ import goUp from './utils/goUp.js';
 import changeDirectory from './utils/changeDirectory.js';
 import addFile from './fs/addFile.js';
 import deleteFile from './fs/deleteFile.js';
+import copyFile from './stream/copyFile.js';
 import getArguments from './utils/getArguments.js';
 
 const rl = readline.createInterface({
@@ -43,6 +44,9 @@ rl.on('line', (input) => {
       break;
     case 'add':
       addFile(args.slice(1).join(' '));
+      break;
+    case 'cp':
+      copyFile(args[1], args[2]);
       break;
     case 'rm':
       deleteFile(args.slice(1).join(' '));
