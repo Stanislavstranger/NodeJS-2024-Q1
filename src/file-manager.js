@@ -1,6 +1,7 @@
 import readline from 'readline';
 import globalVars from './globalVars/globalVars.js';
 import printCurrentDirectory from './utils/printCurrentDirectory.js';
+import printInvalidInput from './utils/printInvalidInput.js';
 import listDirectoryContents from './utils/listDirectoryContents.js';
 import goUp from './utils/goUp.js';
 import changeDirectory from './utils/changeDirectory.js';
