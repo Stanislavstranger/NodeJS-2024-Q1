@@ -1,8 +1,9 @@
 import readline from 'readline';
+import globalVars from './globalVars/globalVars.js';
 import { printCurrentDirectory } from './utils/printCurrentDirectory.js';
 import listDirectoryContents from './utils/listDirectoryContents.js';
 import goUp from './utils/goUp.js';
-import globalVars from './globalVars/globalVars.js';
+import changeDirectory from './utils/changeDirectory.js';
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -30,6 +31,9 @@ rl.on('line', (input) => {
       break;
     case 'up':
       goUp();
+      break;
+    case 'cd':
+      changeDirectory(args[1]);
       break;
     case 'ls':
       listDirectoryContents();
