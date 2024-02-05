@@ -16,6 +16,7 @@ import getCPUsInfo from './os/getCPUsInfo.js';
 import getHomeDirectory from './os/getHomeDirectory.js';
 import getCurrentUserName from './os/getCurrentUserName.js';
 import getCPUArchitecture from './os/getCPUArchitecture.js';
+import calculateHash from './hash/calcHash.js';
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -88,6 +89,9 @@ rl.on('line', (input) => {
         default:
           printInvalidInput();
       }
+      break;
+    case 'hash':
+      calculateHash(args[1]);
       break;
     default:
       printInvalidInput();
