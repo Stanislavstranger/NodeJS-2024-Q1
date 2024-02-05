@@ -6,6 +6,7 @@ import goUp from './utils/goUp.js';
 import changeDirectory from './utils/changeDirectory.js';
 import addFile from './fs/addFile.js';
 import deleteFile from './fs/deleteFile.js';
+import getArguments from './utils/getArguments.js';
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -25,7 +26,7 @@ rl.on('close', () => {
 });
 
 rl.on('line', (input) => {
-  const args = input.trim().split(' ');
+  const args = getArguments(input.trim().split(' '));
 
   switch (args[0]) {
     case 'nwd':
@@ -41,10 +42,10 @@ rl.on('line', (input) => {
       listDirectoryContents();
       break;
     case 'add':
-      addFile(args[1]);
+      addFile(args.slice(1).join(' '));
       break;
     case 'rm':
-      deleteFile(args[1]);
+      deleteFile(args.slice(1).join(' '));
       break;
     default:
       printInvalidInput();
