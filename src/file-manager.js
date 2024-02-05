@@ -5,6 +5,7 @@ import listDirectoryContents from './utils/listDirectoryContents.js';
 import goUp from './utils/goUp.js';
 import changeDirectory from './utils/changeDirectory.js';
 import addFile from './fs/addFile.js';
+import deleteFile from './fs/deleteFile.js';
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -41,6 +42,9 @@ rl.on('line', (input) => {
       break;
     case 'add':
       addFile(args[1]);
+      break;
+    case 'rm':
+      deleteFile(args[1]);
       break;
     default:
       printInvalidInput();

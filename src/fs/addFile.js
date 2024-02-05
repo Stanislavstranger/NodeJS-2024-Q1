@@ -12,8 +12,7 @@ export default async function addFile(fileName) {
 
   try {
     await fs.writeFile(filePath, '');
-    console.log(`File "${fileName}" successfully created in the current directory 
-    "${globalVars.currentWorkingDirectory}"`);
+    console.log(`File "${fileName}" successfully created in the current directory "${globalVars.currentWorkingDirectory}"`);
   } catch (error) {
     console.error(`Error adding file: ${error.message}`);
   }
