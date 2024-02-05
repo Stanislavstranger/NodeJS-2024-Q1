@@ -1,6 +1,8 @@
 import readline from 'readline';
 import { printCurrentDirectory } from './utils/printCurrentDirectory.js';
 import listDirectoryContents from './utils/listDirectoryContents.js';
+import goUp from './utils/goUp.js';
+import globalVars from './globalVars/globalVars.js';
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -12,7 +14,7 @@ const username = process.argv
   .split('--username=')[1] || 'anonym';
 
 console.log(`Welcome to the File Manager, ${username}!`);
-printCurrentDirectory();
+printCurrentDirectory(globalVars.currentWorkingDirectory);
 
 rl.on('close', () => {
   console.log(`Thank you for using File Manager, ${username}, goodbye!`);
@@ -24,7 +26,10 @@ rl.on('line', (input) => {
 
   switch (args[0]) {
     case 'nwd':
-      printCurrentDirectory();
+      printCurrentDirectory(globalVars.currentWorkingDirectory);
+      break;
+    case 'up':
+      goUp();
       break;
     case 'ls':
       listDirectoryContents();

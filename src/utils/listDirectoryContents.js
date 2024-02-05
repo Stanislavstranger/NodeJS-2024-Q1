@@ -1,12 +1,13 @@
 import { promises as fs } from 'fs';
 import path from 'path';
-import { currentWorkingDirectory, printCurrentDirectory } from './printCurrentDirectory.js';
+import { printCurrentDirectory } from './printCurrentDirectory.js';
+import globalVars from '../globalVars/globalVars.js';
 
 export default async function listDirectoryContents() {
-  await printCurrentDirectory();
+  await printCurrentDirectory(globalVars.currentWorkingDirectory);
   try {
-    const contents = await fs.readdir(currentWorkingDirectory);
-    const statsPromises = contents.map((item) => fs.stat(path.join(currentWorkingDirectory, item)));
+    const contents = await fs.readdir(globalVars.currentWorkingDirectory);
+    const statsPromises = contents.map((item) => fs.stat(path.join(globalVars.currentWorkingDirectory, item)));
     const stats = await Promise.all(statsPromises);
 
     const sortedContents = contents.map((item, index) => ({

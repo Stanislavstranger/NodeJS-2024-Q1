@@ -1,7 +1,3 @@
-import os from 'os';
-
-export let currentWorkingDirectory = os.homedir();
-
-export function printCurrentDirectory() {
+export function printCurrentDirectory(currentWorkingDirectory) {
   console.log(`You are currently in ${currentWorkingDirectory}`);
 }
