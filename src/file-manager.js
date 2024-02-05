@@ -9,6 +9,7 @@ import deleteFile from './fs/deleteFile.js';
 import copyFile from './stream/copyFile.js';
 import moveFile from './stream/moveFile.js';
 import catFile from './stream/catFile.js';
+import renameFile from './fs/renameFile.js';
 import getArguments from './utils/getArguments.js';
 
 const rl = readline.createInterface({
@@ -46,6 +47,9 @@ rl.on('line', (input) => {
       break;
     case 'add':
       addFile(args.slice(1).join(' '));
+      break;
+    case 'rn':
+      renameFile(args[1], args[2]);
       break;
     case 'cp':
       copyFile(args[1], args[2]);
