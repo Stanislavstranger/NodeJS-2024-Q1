@@ -1,0 +1,13 @@
+{
+  "name": "nodejs-2024-q1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/file-manager.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
