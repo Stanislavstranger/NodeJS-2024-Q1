@@ -15,6 +15,7 @@ import getEOL from './os/getEOL.js';
 import getCPUsInfo from './os/getCPUsInfo.js';
 import getHomeDirectory from './os/getHomeDirectory.js';
 import getCurrentUserName from './os/getCurrentUserName.js';
+import getCPUArchitecture from './os/getCPUArchitecture.js';
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -80,6 +81,9 @@ rl.on('line', (input) => {
           break;
         case '--username':
           getCurrentUserName();
+          break;
+        case '--architecture':
+          getCPUArchitecture();
           break;
         default:
           printInvalidInput();
