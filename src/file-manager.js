@@ -17,6 +17,7 @@ import getHomeDirectory from './os/getHomeDirectory.js';
 import getCurrentUserName from './os/getCurrentUserName.js';
 import getCPUArchitecture from './os/getCPUArchitecture.js';
 import calculateHash from './hash/calcHash.js';
+import compressFile from './zip/compressFile.js';
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -92,6 +93,9 @@ rl.on('line', (input) => {
       break;
     case 'hash':
       calculateHash(args[1]);
+      break;
+    case 'compress':
+      compressFile(args[1], args[2]);
       break;
     default:
       printInvalidInput();
