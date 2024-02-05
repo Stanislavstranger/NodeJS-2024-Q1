@@ -14,6 +14,7 @@ import getArguments from './utils/getArguments.js';
 import getEOL from './os/getEOL.js';
 import getCPUsInfo from './os/getCPUsInfo.js';
 import getHomeDirectory from './os/getHomeDirectory.js';
+import getCurrentUserName from './os/getCurrentUserName.js';
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -76,6 +77,9 @@ rl.on('line', (input) => {
           break;
         case '--homedir':
           getHomeDirectory();
+          break;
+        case '--username':
+          getCurrentUserName();
           break;
         default:
           printInvalidInput();
