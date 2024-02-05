@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import { printCurrentDirectory } from './printCurrentDirectory.js';
+import printCurrentDirectory from './printCurrentDirectory.js';
 import printOperationFailed from './printOperationFailed.js';
 import globalVars from '../globalVars/globalVars.js';
 

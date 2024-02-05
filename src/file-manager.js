@@ -1,6 +1,6 @@
 import readline from 'readline';
 import globalVars from './globalVars/globalVars.js';
-import { printCurrentDirectory } from './utils/printCurrentDirectory.js';
+import printCurrentDirectory from './utils/printCurrentDirectory.js';
 import listDirectoryContents from './utils/listDirectoryContents.js';
 import goUp from './utils/goUp.js';
 import changeDirectory from './utils/changeDirectory.js';
@@ -12,6 +12,7 @@ import catFile from './stream/catFile.js';
 import renameFile from './fs/renameFile.js';
 import getArguments from './utils/getArguments.js';
 import getEOL from './os/getEOL.js';
+import getCPUsInfo from './os/getCPUsInfo.js';
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -68,6 +69,9 @@ rl.on('line', (input) => {
       switch (args[1]) {
         case '--EOL':
           getEOL();
+          break;
+        case '--cpus':
+          getCPUsInfo();
           break;
         default:
           printInvalidInput();

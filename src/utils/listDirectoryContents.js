@@ -1,6 +1,6 @@
 import { promises as fs } from 'fs';
 import path from 'path';
-import { printCurrentDirectory } from './printCurrentDirectory.js';
+import printCurrentDirectory from './printCurrentDirectory.js';
 import globalVars from '../globalVars/globalVars.js';
 
 export default async function listDirectoryContents() {
